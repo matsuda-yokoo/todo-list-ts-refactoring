@@ -12,7 +12,7 @@ const AppTheme = createTheme({
       components: {
         MuiButton: {
           defaultProps: {
-            size: 'small', // ボタンのデフォルトのサイズをsmallにする
+            size: 'large', // ボタンのデフォルトのサイズをsmallにする
           },
         },
       },
