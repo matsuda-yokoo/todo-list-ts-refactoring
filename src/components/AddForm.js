@@ -6,7 +6,7 @@ const AddForm = ({todo,onAddFormSubmit,onAddInputChange})=>{
     <form onSubmit={onAddFormSubmit}>
           <h2>Add Todo</h2>
           <label htmlFor="todo">Add todo: </label>
-          <div className="form-button">
+          <div className="formAndButton">
           <input
             name="todo"
             type="text"

@@ -6,7 +6,7 @@ const EditForm = ({currentTodo,setIsEditing,onEditFormSubmit,onEditInputChange})
         <form onSubmit={onEditFormSubmit}>
             <h2>Edit Todo</h2>
             <label htmlFor="editTodo">Edit todo: </label>
-            <div className="form-button">
+            <div className="formAndButton">
             <input
                 name="editTodo"
                 type="text"

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from '@mui/material/Button';
 import "./style.css";
 import EditForm from "./components/EditForm";
 import AddForm from "./components/AddForm";
@@ -75,7 +74,6 @@ const App = ()=> {
 
 
   return (
-    <createTheme>
     <div className="App">
       {isEditing ? (
         <EditForm
@@ -102,7 +100,7 @@ const App = ()=> {
         ))}
     </ul>
     </div>
-    </createTheme>
+
   );
 }
 
