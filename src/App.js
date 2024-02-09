@@ -17,6 +17,18 @@ const App = ()=> {
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
 
+  //最大のidを見つけて、maxIdとする
+  const generateId = () => {
+    let maxId = 0;
+    for(const todo of todos){
+      if(todo.id > maxId){
+        maxId = todo.id;
+      }
+    }
+    return maxId +1;
+  };
+  
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
@@ -32,12 +44,11 @@ const App = ()=> {
 
   const handleAddFormSubmit = (e) => {
     e.preventDefault();
-
     if (todo !== "") {
       setTodos([
         ...todos,
         {
-          id: todos.length + 1,
+          id: generateId(),
           text: todo.trim()
         }
       ]);
