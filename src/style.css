@@ -43,7 +43,6 @@
   /* 入力フォームとAddボタン */
   .formAndButton{
     display: flex;
-    height: 50px;
     max-width: 500px;
   }
 
@@ -63,7 +62,6 @@
     background: #ec5990;
     color: white;
     text-transform: uppercase;
-    border: none;
     margin-left: 10%;
     font-size: 16px;
     font-weight: 100;
@@ -80,7 +78,6 @@
   li{
     display: flex;
     margin-bottom: 10px;
-    height: 44.5px;
   }
 
   /* リストのボタン以外の要素の位置調整 */
@@ -102,7 +99,6 @@
     appearance: none;
     background: #333;
     color: white;
-    border: none;
     text-transform: uppercase;
     padding: 10px 20px;
     border-radius: 4px;
@@ -126,7 +122,6 @@
     background: #ec5990;
     color: white;
     text-transform: uppercase;
-    border: none;
     margin-left: 10%;
     padding: 10px 20px;
     font-weight: 100;
@@ -145,7 +140,6 @@
     appearance: none;
     background: #333;
     color: white;
-    border: none;
     text-transform: uppercase;
     padding: 10px 20px;
     border-radius: 4px;
