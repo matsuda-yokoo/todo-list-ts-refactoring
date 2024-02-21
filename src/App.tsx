@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
+import type { ChangeEvent, FormEvent, } from "react";
 import "./style.css";
 import EditForm from "./components/EditForm";
 import AddForm from "./components/AddForm";
 import TodoList from "./components/TodoList";
 
-const App = ()=> {
-  const [todos, setTodos] = useState(() => {
+interface Todo{
+  id: number
+  text: string
+}
+
+const App =()=> {
+  const [todos, setTodos] = useState<Todo[]>(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
       return JSON.parse(savedTodos);
@@ -13,9 +19,9 @@ const App = ()=> {
       return [];
     }
   });
-  const [todo, setTodo] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
-  const [currentTodo, setCurrentTodo] = useState({});
+  const [todo, setTodo] = useState<string>("");
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [currentTodo, setCurrentTodo] = useState<Todo|undefined>();
 
   //最大のidを見つけて、maxIdとする
   const generateId = () => {
@@ -33,16 +39,16 @@ const App = ()=> {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const handleAddInputChange = (e)=> {
+  const handleAddInputChange =(e : ChangeEvent<HTMLInputElement>)=> {
     setTodo(e.target.value);
   }
 
-  const handleEditInputChange = (e)=> {
-    setCurrentTodo({ ...currentTodo, text: e.target.value });
+  const handleEditInputChange =(e : ChangeEvent<HTMLInputElement>)=> {
+    setCurrentTodo({ ...currentTodo!, text: e.target.value });
     console.log(currentTodo);
   }
 
-  const handleAddFormSubmit = (e) => {
+  const handleAddFormSubmit =(e : FormEvent<HTMLFormElement>)=> {
     e.preventDefault();
     if (todo !== "") {
       setTodos([
@@ -57,28 +63,28 @@ const App = ()=> {
     setTodo("");
   }
 
-  const handleEditFormSubmit = (e)=> {
+  const handleEditFormSubmit = (e : React.FormEvent<HTMLFormElement>)=> {
     e.preventDefault();
 
-    handleUpdateTodo(currentTodo.id, currentTodo);
+    handleUpdateTodo(currentTodo!.id, currentTodo);
   }
 
-  const handleDeleteClick = (id)=> {
-    const removeItem = todos.filter((todo) => {
+  const handleDeleteClick = (id: number)=> {
+    const removeItem = todos.filter((todo:Todo) => {
       return todo.id !== id;
     });
     setTodos(removeItem);
   }
 
-  const handleUpdateTodo = (id, updatedTodo)=> {
-    const updatedItem = todos.map((todo) => {
+  const handleUpdateTodo = (id:number, updatedTodo:any)=> {
+    const updatedItem = todos.map((todo:Todo) => {
       return todo.id === id ? updatedTodo : todo;
     });
     setIsEditing(false);
     setTodos(updatedItem);
   }
 
-  const handleEditClick = (todo)=> {
+  const handleEditClick = (todo:Todo)=> {
     setIsEditing(true);
     setCurrentTodo({ ...todo });
   }
@@ -102,7 +108,7 @@ const App = ()=> {
       )}
 
     <ul className="todo-list">
-        {todos.map((todo) => (
+        {todos.map((todo:Todo) => (
           <TodoList
             todo={todo}
             onHandleEditClick={handleEditClick}
