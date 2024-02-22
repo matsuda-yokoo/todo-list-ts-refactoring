@@ -78,12 +78,14 @@ const App =()=> {
     setTodos(removeItem);
   }
 
-  const handleUpdateTodo = (id:number, updatedTodo:any)=> {
+  const handleUpdateTodo = (id:number, updatedTodo:Todo|undefined)=> {
+    if (updatedTodo !== undefined){
     const updatedItem = todos.map((todo:Todo) => {
       return todo.id === id ? updatedTodo : todo;
     });
     setIsEditing(false);
     setTodos(updatedItem);
+    }else return;
   }
 
   const handleEditClick = (todo:Todo)=> {
