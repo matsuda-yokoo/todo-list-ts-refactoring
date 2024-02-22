@@ -28,8 +28,8 @@ const TodoList:React.FC<TodoListProps> =({todo,onHandleEditClick,onHandleDeleteC
               <option value={value}>{label}</option>
             ))}
             </select>
-            <Button variant="outlined" onClick={() => onHandleEditClick(todo)}>Edit</Button>
-            <Button variant="outlined"onClick={() => onHandleDeleteClick(todo.id)}>Delete</Button>
+            <Button variant="outlined" onClick={() => onHandleEditClick(todo)} id="button">Edit</Button>
+            <Button variant="outlined"onClick={() => onHandleDeleteClick(todo.id)} id="button">Delete</Button>
           </li>
 )}
 export default TodoList;

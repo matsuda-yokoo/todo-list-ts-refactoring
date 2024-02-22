@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 
 interface Todo{
@@ -6,7 +6,7 @@ interface Todo{
     text: string
   }
   
-  type EditFormProps={
+type EditFormProps={
     currentTodo: Todo
     setIsEditing: (arg0: boolean)=>void
     onEditFormSubmit: (e:React.FormEvent<HTMLFormElement>)=>void
@@ -28,8 +28,8 @@ const EditForm:React.FC<EditFormProps> = ({currentTodo,setIsEditing,onEditFormSu
                 onChange={onEditInputChange}
             /> 
             <div className="buttons">
-            <Button variant="outlined" >Update</Button>   {/*type="update-button"*/}
-            <Button variant="outlined" onClick={() => setIsEditing(false)}>Cancel</Button>   {/*type="cancel-button"*/}
+            <Button variant="outlined" id="update-button" type="submit">Update</Button>   {/*type="update-button"*/}
+            <Button variant="outlined" onClick={() => setIsEditing(false)} id="cancel-button">Cancel</Button>   {/*type="cancel-button"*/}
             </div>
             </div>
         </form>

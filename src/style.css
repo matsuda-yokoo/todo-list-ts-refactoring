@@ -58,7 +58,7 @@
   }
 
   /* Addボタン */
-  button[type="submit"] {
+  button[id="submit"] {
     background: #ec5990;
     color: white;
     text-transform: uppercase;
@@ -70,7 +70,7 @@
   }
   
   /* Addボタンをホバーしたとき */
-  button[type="submit"]:hover{
+  button[id="submit"]:hover{
     background: #bf1650;
   }
 
@@ -94,7 +94,7 @@
   }
 
   /* AddボタンとUpdateボタン以外のボタン全体のデザイン */
-  button[type="button"] {
+  button[id="button"] {
     display: block;
     appearance: none;
     background: #333;
@@ -107,7 +107,7 @@
   }
 
   /* AddボタンとUpdateボタン以外(Edit,Delete,Cancelボタン)をホバーしたとき */
-  button[type="button"]:hover{
+  button[id="button"]:hover{
     color: #ec5990;
   }
 
@@ -118,7 +118,7 @@
   }
 
   /* Updateボタン */
-  button[type="update-button"]{
+  button[id="update-button"]{
     background: #ec5990;
     color: white;
     text-transform: uppercase;
@@ -131,12 +131,12 @@
   }
 
   /* Updateボタンをホバーしたとき */
-  button[type="update-button"]:hover{
+  button[id="update-button"]:hover{
     background: #bf1650;
   }
 
   /* Cancelボタン */
-  button[type="cancel-button"]{
+  button[id="cancel-button"]{
     appearance: none;
     background: #333;
     color: white;

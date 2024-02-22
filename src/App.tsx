@@ -50,6 +50,8 @@ const App =()=> {
 
   const handleAddFormSubmit =(e : FormEvent<HTMLFormElement>)=> {
     e.preventDefault();
+    console.log("handleAddFormSubmitに入りました");
+    
     if (todo !== "") {
       setTodos([
         ...todos,
@@ -92,7 +94,7 @@ const App =()=> {
 
   return (
     <div className="App">
-      {isEditing ? (
+      {isEditing && currentTodo ? (
         <EditForm
           currentTodo={currentTodo}
           setIsEditing={setIsEditing}

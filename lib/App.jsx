@@ -20,7 +20,7 @@ const App = () => {
     });
     const [todo, setTodo] = (0, react_1.useState)("");
     const [isEditing, setIsEditing] = (0, react_1.useState)(false);
-    const [currentTodo, setCurrentTodo] = (0, react_1.useState)({});
+    const [currentTodo, setCurrentTodo] = (0, react_1.useState)();
     //最大のidを見つけて、maxIdとする
     const generateId = () => {
         let maxId = 0;
@@ -76,7 +76,7 @@ const App = () => {
         setCurrentTodo(Object.assign({}, todo));
     };
     return (<div className="App">
-      {isEditing ? (<EditForm_1.default currentTodo={currentTodo} setIsEditing={setIsEditing} onEditInputChange={handleEditInputChange} onEditFormSubmit={handleEditFormSubmit}/>) : (<AddForm_1.default todo={todo} onAddInputChange={handleAddInputChange} onAddFormSubmit={handleAddFormSubmit}/>)}
+      {isEditing && currentTodo ? (<EditForm_1.default currentTodo={currentTodo} setIsEditing={setIsEditing} onEditInputChange={handleEditInputChange} onEditFormSubmit={handleEditFormSubmit}/>) : (<AddForm_1.default todo={todo} onAddInputChange={handleAddInputChange} onAddFormSubmit={handleAddFormSubmit}/>)}
 
     <ul className="todo-list">
         {todos.map((todo) => (<TodoList_1.default todo={todo} onHandleEditClick={handleEditClick} onHandleDeleteClick={handleDeleteClick}/>))}

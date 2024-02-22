@@ -1,13 +1,8 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-interface Todo{
-  id: number
-  text: string
-}
-
 type AddFormProps={
-  todo: Todo
+  todo: string
   onAddFormSubmit: (e:React.FormEvent<HTMLFormElement>)=>void
   onAddInputChange: (e:React.ChangeEvent<HTMLInputElement>)=>void
 } 
@@ -22,10 +17,10 @@ const AddForm:React.FC<AddFormProps> = ({todo,onAddFormSubmit,onAddInputChange})
             name="todo"
             type="text"
             placeholder="ここに入力してください"
-            value={todo.text}
+            value={todo}
             onChange={onAddInputChange}
           />
-          <Button variant="outlined" type="submit">Add</Button>
+          <Button variant="outlined" id="submit" type="submit">Add</Button>
           </div>
         </form>
     )
