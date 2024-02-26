@@ -12,8 +12,8 @@ const EditForm = ({ currentTodo, setIsEditing, onEditFormSubmit, onEditInputChan
             <div className="formAndButton">
             <input name="editTodo" type="text" placeholder="ここに入力してください" value={currentTodo.text} onChange={onEditInputChange}/> 
             <div className="buttons">
-            <Button_1.default variant="outlined">Update</Button_1.default>   {/*type="update-button"*/}
-            <Button_1.default variant="outlined" onClick={() => setIsEditing(false)}>Cancel</Button_1.default>   {/*type="cancel-button"*/}
+            <Button_1.default variant="outlined" id="update-button" type="submit">Update</Button_1.default>   {/*type="update-button"*/}
+            <Button_1.default variant="outlined" onClick={() => setIsEditing(false)} id="cancel-button">Cancel</Button_1.default>   {/*type="cancel-button"*/}
             </div>
             </div>
         </form>);

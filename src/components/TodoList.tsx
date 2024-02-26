@@ -1,35 +1,34 @@
-import React from "react";
-import { Button } from "@mui/material";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { todoListFilterState} from "../utils/atom";
+import  TodoListStats  from "./TodoListStats";
+import TodoItemCreator from "./TodoItemCreator";
+import TodoItem from './TodoItem';
+import { filteredTodoListState } from '../utils/selector';
 
-interface Todo{
-  id: number
-  text: string
+//画面に表示するTodoListの部分
+const TodoList=()=>{
+  const todoList = useRecoilValue(filteredTodoListState);
+  const [filter,setfilter] = useRecoilState(todoListFilterState);
+
+  const handleChange=(e:React.ChangeEvent<HTMLSelectElement>)=>{
+    setfilter(e.target.value);
+  };
+
+  return (
+    <>
+    <h1>RecoilによるTodoアプリ</h1>
+    <TodoListStats />
+    <select value={filter} onChange={handleChange}> 
+      <option value="すべて">すべて</option>
+      <option value="完了">完了</option>
+      <option value="未完了">未完了</option>
+    </select>
+    <TodoItemCreator />
+    {todoList.map((item)=>(
+      <TodoItem key={item.id} item={item}/>
+    ))}
+    </>
+  );
 }
 
-type TodoListProps={
-  todo: Todo
-  onHandleEditClick: (todo:Todo)=>void
-  onHandleDeleteClick: (id:number)=>void
-} 
-
-const TodoList:React.FC<TodoListProps> =({todo,onHandleEditClick,onHandleDeleteClick})=>{
-    const filterOptions = [
-        { value: 'notStarted', label: '未着手' },
-        { value: 'inProgress', label: '作業中' },
-        { value: 'done', label: '完了' },
-      ];
-    
-    return (
-          <li key={todo.id}>
-            <span>{todo.id}</span>
-            <span>{todo.text}</span>
-            <select>
-            {filterOptions.map(({ value, label }) => (
-              <option value={value}>{label}</option>
-            ))}
-            </select>
-            <Button variant="outlined" onClick={() => onHandleEditClick(todo)} id="button">Edit</Button>
-            <Button variant="outlined"onClick={() => onHandleDeleteClick(todo.id)} id="button">Delete</Button>
-          </li>
-)}
 export default TodoList;
