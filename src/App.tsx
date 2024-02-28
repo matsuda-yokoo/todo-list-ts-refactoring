@@ -1,4 +1,4 @@
-import "./style.css";
+import "./styles/style.css";
 import TodoList from "./components/TodoList";
 import { RecoilRoot } from 'recoil';
 

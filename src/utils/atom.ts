@@ -1,12 +1,6 @@
 import { atom } from 'recoil';
-
-
-//Todo型定義
-type Todo={
-  id:number
-  title:string
-  isComplete:boolean
-}
+import { Todo } from '../types/todo';
+import { FilterOptions } from '../constants/FilterOptions';
 
 //todoListの中身の情報を保持するatomを定義
 export const todoListState = atom<Todo[]>({
@@ -15,7 +9,7 @@ export const todoListState = atom<Todo[]>({
 });
 
 //todoListのステータス情報を保持するatomを定義
-export const todoListFilterState = atom({
+export const todoListFilterState = atom<FilterOptions>({
   key: "todoListFilterState",
-  default: "すべて"
+  default: FilterOptions.All,
 });

@@ -1,0 +1,18 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .toggle-completion {
+    /* スタイルの定義 */
+  }
+  
+  .delete-item {
+    cursor: pointer;
+    /* その他のスタイル定義 */
+  }
+
+  .add-item {
+    margin: 1rem 0;
+  }
