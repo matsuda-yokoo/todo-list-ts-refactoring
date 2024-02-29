@@ -3,19 +3,18 @@ import { useTodoCreateAction } from '../hooks/useTodoCreateAction';
 
 //todo追加機能
 function TodoItemCreator(){  
-     const [title,setTitle]=useState('');
-
+  
       //inputに入力された値をtitleのstateに格納
       const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
         setTitle(e.target.value);
       };
 
-      const addItem = useTodoCreateAction();
+      const {addItem,title,setTitle} = useTodoCreateAction();
 
       return (
         <div  className="add-item">
             <input type="text" value={title} onChange={handleChange}/>
-            <button onClick={()=>addItem}>追加</button>
+            <button onClick={()=>addItem(title)}>追加</button>
         </div>
       );
 }
