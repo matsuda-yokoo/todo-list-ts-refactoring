@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, } from "recoil";
 import { todoListState } from "../utils/atom";
 import { Todo } from "../types/todo";
 
